@@ -1,5 +1,7 @@
 function pu(): void {
-	console.log("funciona");
+	console.log("funciona 2");
 }
-
-export { pu };
+function pa(): void {
+	console.log("funciona 2");
+}
+export { pu, pa };
