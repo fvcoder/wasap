@@ -29,5 +29,5 @@
     "@types/node": "^18.15.3",
     "typescript": "^4.9.5"
   },
-  "gitHead": "1550254b763431c560245c8abd31bdd2a0dc09ea"
+  "gitHead": "574f2c34bd0cdbde6eae60dff3e24e89b018c547"
 }
