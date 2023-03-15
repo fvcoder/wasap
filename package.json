@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "build": "lerna run tsc",
+    "dev": "lerna watch -- lerna run tsc ",
     "publish": "lerna run tsc && lerna publish --registry https://registry.npmjs.com --loglevel verbose"
   },
   "devDependencies": {

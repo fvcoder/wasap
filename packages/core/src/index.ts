@@ -1,7 +1,18 @@
-function pu(): void {
-	console.log("funciona 2");
+import pino from "pino";
+
+export type Logger = pino.Logger;
+export type LoggerOpts = pino.LoggerOptions;
+
+export function crateLogger(opts?: pino.LoggerOptions): pino.Logger {
+	return pino(
+		Object.assign(opts ?? {}, {
+			transport: {
+				target: "pino-pretty",
+			},
+		})
+	);
 }
-function pa(): void {
-	console.log("funciona 2");
-}
-export { pu, pa };
+
+export { BaileysProvider } from "./provider/baileys.provider";
+export { ProviderClass } from "./provider/provider.base";
+export { UserFacingSocketConfig } from "@adiwajshing/baileys";

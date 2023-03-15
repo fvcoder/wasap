@@ -10,6 +10,7 @@
       "target": "es5",
       "sourceMap": true,
       "strictNullChecks": true,
+      "esModuleInterop": true,
       "lib": [
         "ESNext"
       ]

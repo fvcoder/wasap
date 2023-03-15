@@ -1,5 +1,5 @@
 {
-  "name": "wasap-core",
+  "name": "wasap-bot",
   "version": "0.0.7-alpha.0",
   "description": "> TODO: description",
   "author": "Fernando Ticona <46249834+fvcoder@users.noreply.github.com>",
@@ -11,19 +11,19 @@
     "lib": "lib",
     "test": "__tests__"
   },
-  "files": [
-    "lib"
-  ],
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "lib"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fvcoder/wasap.git"
   },
   "scripts": {
     "tsc": "tsc",
-    "test": "node ./__tests__/@wasap/core.test.js"
+    "test": "node ./__tests__/wasap-bot.test.js"
   },
   "bugs": {
     "url": "https://github.com/fvcoder/wasap/issues"
@@ -32,10 +32,7 @@
     "@types/node": "^18.15.3",
     "typescript": "^4.9.5"
   },
-  "gitHead": "e394666b59c8e918f907b458abcb0092b2778a72",
   "dependencies": {
-    "@adiwajshing/baileys": "^5.0.0",
-    "pino": "^8.11.0",
-    "pino-pretty": "^10.0.0"
+    "wasap-core": "^0.0.7-alpha.0"
   }
 }
