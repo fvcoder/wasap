@@ -1,18 +1,25 @@
 {
-  "repository": "https://github.com/fvcoder/wasap",
-  "author": "Fernando Ticona <46249834+fvcoder@users.noreply.github.com>",
-  "license": "MIT",
+  "name": "w",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "build": "lerna run tsc",
-    "dev": "lerna watch -- lerna run tsc ",
-    "publish": "lerna run tsc && lerna publish --registry https://registry.npmjs.com --loglevel verbose"
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
     "eslint": "^8.36.0",
     "eslint-config-codely": "^2.1.3",
-    "lerna": "^6.5.1"
+    "turbo": "latest"
   },
-  "workspaces": [
-    "packages/*"
-  ]
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {},
+  "packageManager": "pnpm@7.28.0"
 }
