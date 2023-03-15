@@ -1,5 +1,5 @@
 {
-  "name": "@wasap/core",
+  "name": "wasap-core",
   "version": "0.0.1",
   "description": "",
   "main": "lib/index.js",
