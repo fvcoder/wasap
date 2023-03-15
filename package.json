@@ -1,0 +1,20 @@
+{
+  "name": "wasap",
+  "version": "1.0.0",
+  "private": "true",
+  "repository": "https://github.com/fvcoder/wasap",
+  "author": "Fernando Ticona <46249834+fvcoder@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "lerna run tsc",
+    "publish": "lerna run tsc && lerna publish"
+  },
+  "devDependencies": {
+    "eslint": "^8.36.0",
+    "eslint-config-codely": "^2.1.3",
+    "lerna": "^6.5.1"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
