@@ -1,5 +1,5 @@
 {
-  "name": "wasap-core",
+  "name": "wasap-bot",
   "version": "0.1.0",
   "description": "",
   "main": "lib/index.js",
@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "build": "tsc",
-    "dev": "tsc -w -p ./tsconfig.json"
+    "dev": "tsc -w"
   },
   "keywords": [],
   "repository": {
@@ -18,17 +18,13 @@
   },
   "author": "Fernando Ticona <46249834+fvcoder@users.noreply.github.com>",
   "license": "MIT",
+  "dependencies": {
+    "qrcode-terminal": "^0.12.0",
+    "wasap-core": "workspace:*"
+  },
   "devDependencies": {
     "@types/node": "^18.15.3",
     "@types/qrcode-terminal": "^0.12.0",
-    "@types/uuid": "^9.0.1",
     "typescript": "^4.9.5"
-  },
-  "dependencies": {
-    "@adiwajshing/baileys": "^5.0.0",
-    "pino": "^8.11.0",
-    "pino-pretty": "^10.0.0",
-    "rxjs": "^7.8.0",
-    "uuid": "^9.0.0"
   }
 }
