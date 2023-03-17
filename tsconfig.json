@@ -1,15 +1,17 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
     "compilerOptions": {
       "module": "commonjs",
       "declaration": true,
       "noImplicitAny": false,
-      "removeComments": true,
+      "removeComments": false,
       "noLib": false,
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
       "target": "es5",
       "sourceMap": true,
       "strictNullChecks": true,
+      "skipLibCheck": true,
       "esModuleInterop": true,
       "lib": [
         "ESNext"

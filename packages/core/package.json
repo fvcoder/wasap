@@ -1,41 +1,34 @@
 {
   "name": "wasap-core",
-  "version": "0.0.7-alpha.0",
-  "description": "> TODO: description",
-  "author": "Fernando Ticona <46249834+fvcoder@users.noreply.github.com>",
-  "homepage": "https://github.com/fvcoder/wasap#readme",
-  "license": "MIT",
+  "version": "0.1.0",
+  "description": "",
   "main": "lib/index.js",
   "typings": "lib/index.d.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
   "files": [
     "lib"
   ],
-  "publishConfig": {
-    "access": "public"
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w -p ./tsconfig.json"
   },
+  "keywords": [],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fvcoder/wasap.git"
   },
-  "scripts": {
-    "tsc": "tsc",
-    "test": "node ./__tests__/@wasap/core.test.js"
-  },
-  "bugs": {
-    "url": "https://github.com/fvcoder/wasap/issues"
-  },
+  "author": "Fernando Ticona <46249834+fvcoder@users.noreply.github.com>",
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^18.15.3",
+    "@types/qrcode-terminal": "^0.12.0",
+    "@types/uuid": "^9.0.1",
     "typescript": "^4.9.5"
   },
-  "gitHead": "e394666b59c8e918f907b458abcb0092b2778a72",
   "dependencies": {
     "@adiwajshing/baileys": "^5.0.0",
     "pino": "^8.11.0",
-    "pino-pretty": "^10.0.0"
+    "pino-pretty": "^10.0.0",
+    "rxjs": "^7.8.0",
+    "uuid": "^9.0.0"
   }
 }
