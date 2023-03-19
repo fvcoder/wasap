@@ -1,7 +1,13 @@
 import { v4 } from "uuid";
 
+import { generateUid } from "./generateUid";
 import type { answerCtx, keywordCtx } from "./types";
 
+/**
+ * valida/normaliza los parametros para `keywordCtx`
+ * @param {Partial<Omit<keywordCtx, "type" | "uid">>} keywordPartial keywordCtx
+ * @returns {keywordCtx}
+ */
 export function getKeywordOpts({
 	action,
 	children,
@@ -33,9 +39,15 @@ export function getKeywordOpts({
 		sensitive: typeof sensitive === "boolean" ? sensitive : false,
 		blacklist: wl.filter((x) => typeof x === "string"),
 		whitelist: bl.filter((x) => typeof x === "string"),
+		hash: generateUid(a),
 	};
 }
 
+/**
+ * valida/normaliza los parametros para `answerCtx`
+ * @param {Partial<Omit<answerCtx, "type" | "uid">>} answerPartial answerCtx
+ * @returns {answerCtx}
+ */
 export function getanswerOpts({
 	action,
 	image,
@@ -78,5 +90,6 @@ export function getanswerOpts({
 		sensitive: typeof sensitive === "boolean" ? sensitive : false,
 		blacklist: wl,
 		whitelist: bl,
+		hash: generateUid(a),
 	};
 }

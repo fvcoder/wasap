@@ -1,17 +1,22 @@
 import { getanswerOpts, getKeywordOpts } from "./getOptions";
-import { answerCtx, FlowCtx, keywordCtx } from "./types";
+import { answerCtx, FlowCtx, FlowCtxObj, keywordCtx } from "./types";
 
 /**
- * @description hola descr
+ * @description flujo de conversaciones
  */
 export class Flow {
-	ctx: FlowCtx[];
+	private readonly ctx: FlowCtx[];
 
 	constructor() {
 		this.ctx = [];
 	}
 
-	addKeyworld(opts: Partial<Omit<keywordCtx, "uid" | "type">>): keywordCtx {
+	/**
+	 * Añade palabras clave para iniciar con el flujo
+	 * @param {Partial<Omit<keywordCtx, "uid" | "type">>} opts - keyword Context
+	 * @returns {keywordCtx}
+	 */
+	addKeyword(opts: Partial<Omit<keywordCtx, "uid" | "type" | "hash">>): keywordCtx {
 		const keyword = getKeywordOpts(opts);
 
 		if (keyword.action.length === 0) {
@@ -22,6 +27,11 @@ export class Flow {
 		return keyword;
 	}
 
+	/**
+	 * Remueve el flujo de la base de datos
+	 * @param {string} uid Identificador unico de keyword
+	 * @returns {void}
+	 */
 	removeKeyworld(uid: string): void {
 		const index = this.ctx.findIndex((x) => x.uid === uid && x.type === "keyword");
 		if (index !== -1) {
@@ -31,7 +41,13 @@ export class Flow {
 		return;
 	}
 
-	addAnswer(parentUid: string, opts: Partial<Omit<answerCtx, "uid" | "type">>): answerCtx {
+	/**
+	 * Añade una respuesta ante un flujo de conversacion
+	 * @param {string} parentUid - uid del padre que invoca el proceso, puede ser `keywordCtx` o `answerCtx`
+	 * @param {Partial<Omit<answerCtx, "uid" | "type">>} opts Answer Context
+	 * @returns {answerCtx}
+	 */
+	addAnswer(parentUid: string, opts: Partial<Omit<answerCtx, "uid" | "type" | "hash">>): answerCtx {
 		const answer = getanswerOpts(opts);
 
 		const keyIndex = this.ctx.findIndex((x) => parentUid === x.uid);
@@ -48,6 +64,53 @@ export class Flow {
 
 		return answer;
 	}
+
+	/**
+	 * Busca por uid
+	 * @param {string} uid parametro de busqueda (uid)
+	 * @returns {FlowCtx | undefined}
+	 */
+	findByUid(uid: string): FlowCtx | undefined {
+		return this.ctx.find((x) => x.uid === uid);
+	}
+
+	/**
+	 * Busca por hash
+	 * @param {string} uid parametro de busqueda (hash)
+	 * @returns {FlowCtx | undefined}
+	 */
+	findByHash(hash: string): FlowCtx | undefined {
+		return this.ctx.find((x) => x.hash === hash);
+	}
+
+	/**
+	 * obtiene todo el flujo de conversacion en un Objeto
+	 * @param uid parametro de busqueda (uid)
+	 * @returns {FlowCtxObj | undefined}
+	 */
+	getObject(uid: string): FlowCtxObj | undefined {
+		const current = this.findByUid(uid);
+		if (current) {
+			const flow: FlowCtxObj = current as FlowCtxObj;
+			if (typeof current.children === "string") {
+				flow.children = this.getObject(current.children);
+
+				return flow;
+			}
+
+			return flow;
+		}
+
+		return undefined;
+	}
 }
 
-export { answerCtx, baseCtx, FlowCtx, keywordCtx } from "./types";
+export {
+	answerCtx,
+	answerPrompt,
+	answerPromptArgs,
+	baseCtx,
+	FlowCtx,
+	FlowCtxObj,
+	keywordCtx,
+} from "./types";

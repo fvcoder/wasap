@@ -1,11 +1,13 @@
 {
   "name": "wasap-core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "lib/index.js",
   "typings": "lib/index.d.js",
   "files": [
-    "lib"
+    "lib",
+    "readme.md",
+    "changelog.md"
   ],
   "scripts": {
     "build": "tsc",
@@ -28,7 +30,6 @@
     "@adiwajshing/baileys": "^5.0.0",
     "pino": "^8.11.0",
     "pino-pretty": "^10.0.0",
-    "rxjs": "^7.8.0",
     "uuid": "^9.0.0"
   }
 }
