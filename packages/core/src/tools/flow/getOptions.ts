@@ -37,8 +37,8 @@ export function getKeywordOpts({
 		action: a,
 		children: typeof children === "string" ? children : undefined,
 		sensitive: typeof sensitive === "boolean" ? sensitive : false,
-		blacklist: wl.filter((x) => typeof x === "string"),
-		whitelist: bl.filter((x) => typeof x === "string"),
+		blacklist: wl,
+		whitelist: bl,
 		hash: generateUid(a),
 	};
 }
